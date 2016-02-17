@@ -1,0 +1,7 @@
+dep
+lib
+node_modules
+coverage
+output
+*.orig
+*.log

@@ -1,0 +1,36 @@
+{
+  "name": "react-zrender",
+  "description": "react zrender canvas svg",
+  "main": "dist",
+  "authors": [
+    "cxtom <cxtom2010@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "zrender",
+    "canvas",
+    "svg"
+  ],
+  "homepage": "https://github.com/cxtom/react-zrender",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "dep",
+    "test",
+    "tests",
+    "lib",
+    "doc",
+    "example",
+    "src",
+    "coverage",
+    "edp-*.js",
+    "module.conf"
+  ],
+  "dependencies": {
+    "react": "^0.14.7",
+    "zrender": "#master"
+  }
+}

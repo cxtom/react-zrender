@@ -1,0 +1,13 @@
+{
+    "presets": ["es2015", "stage-0"],
+    "plugins": [
+        "transform-react-jsx",
+        "transform-react-display-name",
+        "transform-strict-mode"
+    ],
+    "env": {
+        "build": {
+            "plugins": ["external-helpers"]
+        }
+    }
+}

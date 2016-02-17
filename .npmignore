@@ -1,0 +1,16 @@
+dep
+node_modules
+output
+dist
+test
+tool
+src
+coverage
+edp-*.js
+bower.json
+.bowerrc
+.fecsrc
+.fecsignore
+*.conf
+*.orig
+*.log
