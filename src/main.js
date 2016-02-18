@@ -4,18 +4,15 @@
  */
 
 exports.Zrender = require('./Zrender');
+exports.Group = require('./Group');
 
 const {
     create,
     // ZRENDER_SHAPES,
-    ZRENDER_CONTAINERS,
     ZRENDER_BASICS
 } = require('./createChildComponent');
 
-[
-    ...ZRENDER_BASICS,
-    ...ZRENDER_CONTAINERS
-].forEach(type => {
+ZRENDER_BASICS.forEach(type => {
     exports[type] = create(type);
 });
 

@@ -7,9 +7,14 @@ const React = require('react');
 
 const {
     Zrender,
-    Text
+    Text,
+    Group,
+    getShape
 } = require('react-zrender');
 
+require('zrender/graphic/shape/Circle');
+
+const Circle = getShape('Circle');
 
 const App = React.createClass({
 
@@ -32,6 +37,28 @@ const App = React.createClass({
                         x: 100,
                         y: 100
                     }} />
+                <Group>
+                    <Circle
+                        shape={{
+                            cx: 250,
+                            cy: 150,
+                            r: 30
+                        }}
+                        style={{
+                            stroke: '#000',
+                            fill: 'transparent'
+                        }} />
+                    <Circle
+                        shape={{
+                            cx: 300,
+                            cy: 150,
+                            r: 30
+                        }}
+                        style={{
+                            stroke: '#000',
+                            fill: 'transparent'
+                        }} />
+                </Group>
             </Zrender>
         );
     }

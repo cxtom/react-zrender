@@ -6,31 +6,58 @@
 const React = require('react');
 const zrender = require('zrender');
 
+const ElementMixin = require('./mixins/ElementMixin');
+
+const {PropTypes} = React;
+
 const Zrender = React.createClass({
 
     displayName: 'Zrender',
 
-    getChildContext() {
+    mixins: [ElementMixin],
+
+    propTypes: {
+        renderer: PropTypes.oneOf(['canvas', 'svg']).isRequired,
+        devicePixelRatio: PropTypes.number
+    },
+
+    getInitialState() {
+
+        const {children} = this.props;
+
         return {
-            add: this.addChild
+            children: React.Children.map(children, (child, index) => {
+                return React.cloneElement(child, {
+                    key: `child${index}`,
+                    ref: `child${index}`
+                });
+            })
+        };
+    },
+
+    getDefaultProps() {
+        return {
+            renderer: 'canvas'
         };
     },
 
     componentDidMount() {
-        this.zr = zrender.init(this.refs.main, this.props);
+
+        const {refs, props, state} = this;
+
+        this.element = zrender.init(refs.main, props);
+
+        for (let i = 0, len = state.children.length; i < len; i++) {
+            const element = refs[`child${i}`].getElement();
+            if (element) {
+                this.element.add(element);
+            }
+        }
     },
 
     shouldComponentUpdate() {
         // do not update this dom
         return false;
-    },
-
-    addChild(element) {
-        if (!this.zr) {
-            return;
-        }
-
-        this.zr.add(element);
     },
 
     render() {
@@ -42,27 +69,13 @@ const Zrender = React.createClass({
         return (
             <div
                 {...this.props}
-                className={'Zrender ' + className}
-                ref="main"
-                />
+                className={`Zrender ${className}`}
+                ref="main">
+                {this.state.children}
+            </div>
         );
     }
 
 });
-
-const {PropTypes} = React;
-
-Zrender.propTypes = {
-    renderer: PropTypes.oneOf(['canvas', 'svg']).isRequired,
-    devicePixelRatio: PropTypes.number
-};
-
-Zrender.defaultProps = {
-    renderer: 'canvas'
-};
-
-Zrender.childContextTypes = {
-    add: PropTypes.func
-};
 
 module.exports = Zrender;

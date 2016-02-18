@@ -4,11 +4,12 @@
  */
 
 const React = require('react');
+const ElementMixin = require('./mixins/ElementMixin');
 
 require('zrender/graphic/Text');
 require('zrender/graphic/Image');
 require('zrender/graphic/Path');
-require('zrender/container/Group');
+
 
 export const ZRENDER_SHAPES = [
     'Arc',
@@ -29,10 +30,6 @@ export const ZRENDER_SHAPES = [
     'Trochoid'
 ];
 
-export const ZRENDER_CONTAINERS = [
-    'Group'
-];
-
 export const ZRENDER_BASICS = [
     'Image',
     'Text',
@@ -48,9 +45,6 @@ export function create(type) {
     if (ZRENDER_BASICS.indexOf(type) >= 0) {
         Element = require('zrender/graphic/' + type);
     }
-    else if (ZRENDER_CONTAINERS.indexOf(type) >= 0) {
-        Element = require('zrender/container/Group');
-    }
     else if (ZRENDER_SHAPES.indexOf(type) >= 0) {
         Element = require('zrender/graphic/shape/' + type);
     }
@@ -59,6 +53,8 @@ export function create(type) {
     }
 
     const Component = React.createClass({
+
+        mixins: [ElementMixin],
 
         propTypes: {
             style: PropTypes.object,
@@ -70,21 +66,26 @@ export function create(type) {
         },
 
         contextTypes: {
-            add: PropTypes.func
+            group: React.PropTypes.object
         },
 
         componentWillMount() {
-            setTimeout(() => {
-                this.context.add(new Element(this.props));
-            }, 0);
+            this.element = new Element(this.props);
+
+            const {group} = this.context;
+            if (group) {
+                group.add(this.element);
+            }
         },
 
         render() {
             return null;
         }
+
     });
 
-    Component.displayName = type;
+
+    Component.displayName = `Zrender${type}`;
 
     return Component;
 
