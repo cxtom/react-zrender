@@ -12,6 +12,7 @@ const {
     getShape
 } = require('react-zrender');
 
+require('zrender/svg/svg');
 require('zrender/graphic/shape/Circle');
 
 const Circle = getShape('Circle');
@@ -25,6 +26,7 @@ const App = React.createClass({
     render() {
         return (
             <Zrender
+                renderer="canvas"
                 style={{
                     width: 500,
                     height: 300
@@ -34,6 +36,7 @@ const App = React.createClass({
                         text: 'hello',
                         fill: '#000',
                         font: '18px Arial',
+                        textFont: '18px Arial',
                         x: 100,
                         y: 100
                     }} />

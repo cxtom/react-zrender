@@ -8,9 +8,8 @@ exports.Group = require('./Group');
 
 const {
     create,
-    // ZRENDER_SHAPES,
     ZRENDER_BASICS
-} = require('./createChildComponent');
+} = require('./util/createChildComponent');
 
 ZRENDER_BASICS.forEach(type => {
     exports[type] = create(type);
@@ -19,7 +18,3 @@ ZRENDER_BASICS.forEach(type => {
 exports.getShape = function (type) {
     return create(type);
 };
-
-// ZRENDER_SHAPES.forEach(type => {
-//     exports.shape[type] = create(type);
-// });

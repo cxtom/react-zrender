@@ -5,19 +5,19 @@
 
 const React = require('react');
 const Group = require('zrender/container/Group');
+const ElementMixin = require('./mixins/ElementMixin');
+const AnimationMixin = require('./mixins/AnimationMixin');
+const elementPropTypes = require('./util/elementPropTypes');
 
-const {PropTypes} = React;
+// const {PropTypes} = React;
 
 const ZrenderGroup = React.createClass({
 
     displayName: 'ZrenderGroup',
 
-    propTypes: {
-        position: PropTypes.array,
-        scale: PropTypes.array,
-        rotation: PropTypes.number,
-        z: PropTypes.number
-    },
+    mixins: [ElementMixin, AnimationMixin],
+
+    propTypes: elementPropTypes,
 
     childContextTypes: {
         group: React.PropTypes.object
@@ -32,10 +32,6 @@ const ZrenderGroup = React.createClass({
         return {
             group: this.element
         };
-    },
-
-    getElement() {
-        return this.element;
     },
 
     render() {

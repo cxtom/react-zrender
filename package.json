@@ -4,7 +4,10 @@
   "description": "edp project",
   "main": "lib/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "fecs src --rule",
+    "build:amd": "sh tool/build-amd.sh",
+    "build:commonjs": "sh tool/build-commonjs.sh"
   },
   "edp": {
     "wwwroot": "/",

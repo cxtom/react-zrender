@@ -4,7 +4,9 @@
  */
 
 const React = require('react');
-const ElementMixin = require('./mixins/ElementMixin');
+const ElementMixin = require('../mixins/ElementMixin');
+const AnimationMixin = require('../mixins/AnimationMixin');
+const elementPropTypes = require('./elementPropTypes');
 
 require('zrender/graphic/Text');
 require('zrender/graphic/Image');
@@ -54,15 +56,12 @@ export function create(type) {
 
     const Component = React.createClass({
 
-        mixins: [ElementMixin],
+        mixins: [ElementMixin, AnimationMixin],
 
         propTypes: {
+            ...elementPropTypes,
             style: PropTypes.object,
-            shape: PropTypes.object,
-            position: PropTypes.array,
-            scale: PropTypes.array,
-            rotation: PropTypes.number,
-            z: PropTypes.number
+            shape: PropTypes.object
         },
 
         contextTypes: {

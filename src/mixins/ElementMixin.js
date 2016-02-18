@@ -6,6 +6,11 @@
 module.exports = {
 
     componentWillMount() {
+
+        if (this.element) {
+            return;
+        }
+
         this.element = null;
     },
 
