@@ -6,30 +6,31 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "fecs src --rule",
-    "build:amd": "sh tool/build-amd.sh",
-    "build:commonjs": "sh tool/build-commonjs.sh"
-  },
-  "edp": {
-    "wwwroot": "/",
-    "depDir": "dep",
-    "srcDir": "src",
-    "loaderAutoConfig": "js,htm,html,tpl,vm,phtml",
-    "loaderUrl": "http://s1.bdstatic.com/r/www/cache/ecom/esl/1-8-2/esl.js",
-    "dependencies": {}
+    "start": "gulp"
   },
   "dependencies": {
-    "react": "^0.14.7"
+    "react": "^0.14.7",
+    "zrender": "^3.0.1"
   },
   "devDependencies": {
+    "amd-loader": "0.0.5",
     "babel-core": "^6.5.2",
+    "babel-loader": "^6.2.3",
     "babel-plugin-external-helpers": "^6.5.0",
     "babel-plugin-transform-react-display-name": "^6.5.0",
     "babel-plugin-transform-react-jsx": "^6.5.2",
     "babel-plugin-transform-strict-mode": "^6.5.2",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^2.3.1",
+    "gulp-stylus": "^2.3.0",
+    "gulp-webpack": "^1.5.0",
     "nib": "^1.1.0",
-    "stylus": "^0.53.0"
+    "react-dom": "^0.14.7",
+    "stylus": "^0.53.0",
+    "webpack": "^1.12.13"
   },
   "author": "cxtom <cxtom2010@gmail.com>",
   "repository": {

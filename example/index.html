@@ -3,37 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>React Zrender</title>
-    <link rel="stylesheet" href="./main.styl">
+    <link rel="stylesheet" href="/build/main.css">
 </head>
 <body>
 <div id="app"></div>
-<script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/2-1-4/esl.js"></script>
-<script>
-require.config({
-    baseUrl: '/example',
-    paths: {
-        'react': '../dep/react/react',
-        'react-dom': '../dep/react/react-dom'
-    },
-    packages: [{
-        name: 'zrender',
-        location: '../dep/zrender/src',
-        main: 'zrender'
-    }, {
-        name: 'react-zrender',
-        location: '../src',
-        main: 'main'
-    }]
-});
-
-require(['react', 'react-dom', 'common/App'], function (React, ReactDOM, App) {
-
-    ReactDOM.render(
-        React.createElement(App),
-        document.getElementById('app')
-    );
-
-});
-</script>
+<script src="/build/app.js"></script>
 </body>
 </html>
