@@ -9,13 +9,13 @@ const createComponent = require('./util/createComponent');
 const ContainerMixin = require('./mixins/ContainerMixin');
 const NodeMixin = require('./mixins/NodeMixin');
 
+const ReactRef = require('react/lib/ReactRef');
 
 const ZrenderGroup = createComponent('Group', NodeMixin, ContainerMixin, {
 
     mountComponent(
+        rootID,
         transaction,
-        nativeParent,
-        nativeContainerInfo,
         context
     ) {
         const props = this._currentElement.props;
@@ -33,9 +33,9 @@ const ZrenderGroup = createComponent('Group', NodeMixin, ContainerMixin, {
     },
 
     unmountComponent() {
-        this.node.removeAll();
         this.unmountChildren();
     }
+
 });
 
 module.exports = ZrenderGroup;

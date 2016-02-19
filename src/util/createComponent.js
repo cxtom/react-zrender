@@ -5,7 +5,6 @@
 
 const {PropTypes} = require('react');
 
-
 module.exports = function createComponent(name, ...args) {
     let ReactARTComponent = function (props) {
         this.node = null;

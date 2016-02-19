@@ -74,6 +74,7 @@ const App = React.createClass({
                 ) : undefined}
                 <Group>
                     <Circle
+                        ref="circle"
                         shape={{
                             cx: 250,
                             cy: 150,
@@ -83,16 +84,18 @@ const App = React.createClass({
                             stroke: '#000',
                             fill: 'transparent'
                         }} />
-                    <Circle
-                        shape={{
-                            cx: 300,
-                            cy: 150,
-                            r: this.state.r
-                        }}
-                        style={{
-                            stroke: '#000',
-                            fill: 'transparent'
-                        }} />
+                        <Group>
+                            <Circle
+                                shape={{
+                                    cx: 300,
+                                    cy: 150,
+                                    r: this.state.r
+                                }}
+                                style={{
+                                    stroke: '#000',
+                                    fill: 'transparent'
+                                }} />
+                        </Group>
                 </Group>
             </Zrender>
         );

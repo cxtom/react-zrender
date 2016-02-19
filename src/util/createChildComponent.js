@@ -6,6 +6,8 @@
 const createComponent = require('./createComponent');
 const NodeMixin = require('../mixins/NodeMixin');
 
+const ReactRef = require('react/lib/ReactRef');
+
 require('zrender/graphic/Text');
 require('zrender/graphic/Image');
 require('zrender/graphic/Path');
@@ -51,10 +53,10 @@ export function create(type) {
     }
 
     const Component = createComponent(type, NodeMixin, {
+
         mountComponent(
+            rootID,
             transaction,
-            nativeParent,
-            nativeContainerInfo,
             context
         ) {
             const {props} = this._currentElement;

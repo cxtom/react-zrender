@@ -3,11 +3,13 @@
  * @author cxtom(cxtom2010@gmail.com)
  */
 
+const ServerReactRootIndex = require('react/lib/ServerReactRootIndex');
 
-var NodeMixin = {
+const NodeMixin = {
 
     construct(element) {
         this._currentElement = element;
+        this._rootNodeID = ServerReactRootIndex.createReactRootIndex();
     },
 
     getNativeNode() {
@@ -15,6 +17,10 @@ var NodeMixin = {
     },
 
     getPublicInstance() {
+        return this.node;
+    },
+
+    getReactMountReady() {
         return this.node;
     },
 
