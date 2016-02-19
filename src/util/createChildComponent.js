@@ -7,12 +7,11 @@ const createComponent = require('./createComponent');
 const NodeMixin = require('../mixins/NodeMixin');
 const ElementMixin = require('../mixins/ElementMixin');
 
-require('zrender/graphic/Text');
 require('zrender/graphic/Image');
 require('zrender/graphic/Path');
 
 
-export const ZRENDER_SHAPES = [
+const ZRENDER_SHAPES = [
     'Arc',
     'BezierCurve',
     'Circle',
@@ -31,12 +30,12 @@ export const ZRENDER_SHAPES = [
     'Trochoid'
 ];
 
-export const ZRENDER_BASICS = [
+const ZRENDER_BASICS = [
     'Image',
     'Path'
 ];
 
-export function create(type) {
+function create(type) {
 
     let Element;
 
@@ -50,7 +49,7 @@ export function create(type) {
         return;
     }
 
-    const Component = createComponent(type, NodeMixin, ElementMixin, {
+    return createComponent(type, NodeMixin, ElementMixin, {
 
         mountComponent(
             rootID,
@@ -64,6 +63,11 @@ export function create(type) {
 
     });
 
-    return Component;
-
 }
+
+module.exports = {
+    ZRENDER_SHAPES,
+    ZRENDER_BASICS,
+    create
+};
+

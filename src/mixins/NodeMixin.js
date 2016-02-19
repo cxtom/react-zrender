@@ -20,10 +20,6 @@ const NodeMixin = {
         return this.node;
     },
 
-    getReactMountReady() {
-        return this.node;
-    },
-
     applyNodeProps(oldProps = {}, props = {}) {
 
         const {node} = this;

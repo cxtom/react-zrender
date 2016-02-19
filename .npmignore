@@ -6,6 +6,7 @@ test
 tool
 src
 build
+example
 coverage
 edp-*.js
 bower.json

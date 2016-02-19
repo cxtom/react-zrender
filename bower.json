@@ -25,9 +25,13 @@
     "doc",
     "example",
     "src",
+    "tool",
+    "build",
     "coverage",
-    "edp-*.js",
-    "module.conf"
+    ".*rc",
+    ".*ignore",
+    "gulpfile.js",
+    "webpack.config.js"
   ],
   "dependencies": {
     "react": "^0.14.7",
