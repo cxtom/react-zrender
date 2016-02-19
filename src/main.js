@@ -5,6 +5,7 @@
 
 exports.Zrender = require('./Zrender');
 exports.Group = require('./Group');
+exports.Text = require('./Text');
 
 const {
     create,

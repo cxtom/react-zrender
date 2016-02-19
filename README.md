@@ -86,13 +86,14 @@ const App = React.createClass({
                 height={300}>
                 <Text
                     style={{
-                        text: 'hello',
                         fill: '#000',
                         font: '18px Arial',
                         textFont: '18px Arial',
                         x: 100,
                         y: 100
-                    }} />
+                    }}>
+                    hello
+                </Text>
                 <Group>
                     <Circle
                         ref="circle"

@@ -5,6 +5,7 @@
 
 const createComponent = require('./createComponent');
 const NodeMixin = require('../mixins/NodeMixin');
+const ElementMixin = require('../mixins/ElementMixin');
 
 require('zrender/graphic/Text');
 require('zrender/graphic/Image');
@@ -32,7 +33,6 @@ export const ZRENDER_SHAPES = [
 
 export const ZRENDER_BASICS = [
     'Image',
-    'Text',
     'Path'
 ];
 
@@ -50,7 +50,7 @@ export function create(type) {
         return;
     }
 
-    const Component = createComponent(type, NodeMixin, {
+    const Component = createComponent(type, NodeMixin, ElementMixin, {
 
         mountComponent(
             rootID,
@@ -60,18 +60,8 @@ export function create(type) {
             const {props} = this._currentElement;
             this.node = new Element(props);
             return this.node;
-        },
-
-        receiveComponent(nextComponent, transaction, context) {
-            const {props} = nextComponent;
-            const oldProps = this._currentElement.props;
-            this.applyNodeProps(oldProps, props);
-            this._currentElement = nextComponent;
-        },
-
-        unmountComponent() {
-            this.node.removeSelfFromZr();
         }
+
     });
 
     return Component;
