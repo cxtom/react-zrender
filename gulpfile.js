@@ -9,8 +9,10 @@ var del = require('del');
 var connect = require('gulp-connect');
 var stylus = require('gulp-stylus');
 var webpack = require('gulp-webpack');
+var babel = require('gulp-babel');
 var nib = require('nib');
 var webpackConfig = require('./webpack.config.js');
+var babelHelpers = require('./tool/gulpBabelExternalHelper');
 
 var port = process.env.PORT || 8080;
 var reloadPort = process.env.RELOAD_PORT || 35729;
@@ -19,11 +21,23 @@ gulp.task('clean', function () {
     del(['build']);
 });
 
+gulp.task('release-clean', function () {
+    del(['lib']);
+});
+
 gulp.task('build', function () {
     return gulp.src('./example/common/App.js')
         .pipe(webpack(webpackConfig))
         .pipe(gulp.dest('build/'));
 });
+
+gulp.task('release', function () {
+    return gulp.src(['./src/*.js', './src/**/*.js'])
+        .pipe(babel())
+        .pipe(babelHelpers())
+        .pipe(gulp.dest('lib/'));
+});
+
 
 gulp.task('serve', function () {
     connect.server({
@@ -53,3 +67,5 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', ['clean', 'build', 'stylus', 'serve', 'watch']);
+
+gulp.task('commonjs', ['release-clean', 'release']);
