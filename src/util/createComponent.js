@@ -6,6 +6,7 @@
 const {PropTypes} = require('react');
 
 module.exports = function createComponent(name, ...args) {
+
     let ReactARTComponent = function (props) {
         this.node = null;
         this.subscriptions = null;
@@ -13,6 +14,7 @@ module.exports = function createComponent(name, ...args) {
         this._mountImage = null;
         this._renderedChildren = null;
     };
+
     ReactARTComponent.displayName = `Zrender${name}`;
     ReactARTComponent.propTypes = {
         style: PropTypes.object,
@@ -28,6 +30,7 @@ module.exports = function createComponent(name, ...args) {
 
         id: PropTypes.string
     };
+
     for (let i = 0, l = args.length; i < l; i++) {
         Object.assign(ReactARTComponent.prototype, args[i]);
     }

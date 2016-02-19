@@ -9,8 +9,6 @@ const createComponent = require('./util/createComponent');
 const ContainerMixin = require('./mixins/ContainerMixin');
 const NodeMixin = require('./mixins/NodeMixin');
 
-const ReactRef = require('react/lib/ReactRef');
-
 const ZrenderGroup = createComponent('Group', NodeMixin, ContainerMixin, {
 
     mountComponent(

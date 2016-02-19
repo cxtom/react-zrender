@@ -33,6 +33,25 @@ require('zrender/graphic/shape/Circle');
 const Circle = getShape('Circle');
 ```
 
+#### zredner shapes
+
+* Arc
+* BezierCurve
+* Circle
+* Droplet
+* Ellipse
+* Heart
+* Isogon
+* Line
+* Polygon
+* Polyline
+* Rect
+* Ring
+* Rose
+* Sector
+* Star
+* Trochoid
+
 ## Building Components
 
 Here is a very simple component that renders texts and circles:
@@ -52,8 +71,8 @@ const {
 
 // support svg
 require('zrender/svg/svg');
-require('zrender/graphic/shape/Circle');
 
+require('zrender/graphic/shape/Circle');
 const Circle = getShape('Circle');
 
 const App = React.createClass({

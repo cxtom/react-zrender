@@ -85,7 +85,7 @@ const Zrender = React.createClass({
             ...rest
         } = this.props;
 
-        let {style} = this.props;
+        let {style = {}} = this.props;
 
         if (width) {
             style.width = width;

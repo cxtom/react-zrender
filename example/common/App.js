@@ -32,13 +32,13 @@ const App = React.createClass({
 
     render() {
 
+        const {r} = this.state;
+
         return (
             <Zrender
                 renderer="canvas"
-                style={{
-                    width: 500,
-                    height: 300
-                }}>
+                width={500}
+                height={300}>
                 <Text
                     style={{
                         text: 'hello',
@@ -48,37 +48,37 @@ const App = React.createClass({
                         x: 100,
                         y: 100
                     }} />
-                {this.state.r === 50 ? (
+                {r === 50 ? (
                     <Circle
                         shape={{
                             cx: 200,
                             cy: 150,
-                            r: this.state.r
+                            r: r
                         }}
                         style={{
                             stroke: '#000',
                             fill: 'transparent'
                         }} />
                 ) : undefined}
-                {this.state.r === 30 ? (
+                {r === 30 ? (
                     <Circle
                         shape={{
                             cx: 350,
                             cy: 150,
-                            r: this.state.r
+                            r: r
                         }}
                         style={{
                             stroke: '#000',
                             fill: 'transparent'
                         }} />
                 ) : undefined}
-                <Group>
+                <Group position={[0, r]}>
                     <Circle
                         ref="circle"
                         shape={{
                             cx: 250,
                             cy: 150,
-                            r: this.state.r
+                            r: r
                         }}
                         style={{
                             stroke: '#000',
@@ -89,7 +89,7 @@ const App = React.createClass({
                                 shape={{
                                     cx: 300,
                                     cy: 150,
-                                    r: this.state.r
+                                    r: r
                                 }}
                                 style={{
                                     stroke: '#000',

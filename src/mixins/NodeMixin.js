@@ -52,7 +52,7 @@ const NodeMixin = {
 
     mountComponentIntoNode(rootID, container) {
         throw new Error(
-            'You cannot render an ART component standalone. '
+            'You cannot render an ZrenderNode component standalone. '
             + 'You need to wrap it in a Zrender.'
         );
     }
