@@ -20,7 +20,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('build', function () {
-    return gulp.src(webpackConfig.entry.app[0])
+    return gulp.src('./example/common/App.js')
         .pipe(webpack(webpackConfig))
         .pipe(gulp.dest('build/'));
 });

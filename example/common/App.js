@@ -11,7 +11,7 @@ const {
     Text,
     Group,
     getShape
-} = require('react-zrender');
+} = require('../../lib/main');
 
 require('zrender/svg/svg');
 require('zrender/graphic/shape/Circle');

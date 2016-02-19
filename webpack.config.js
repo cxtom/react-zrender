@@ -3,6 +3,7 @@
  * @author cxtom(cxtom2010@gmail.com)
  */
 
+var path = require('path');
 
 module.exports = {
 
@@ -10,29 +11,32 @@ module.exports = {
 
     watch: true,
 
+    debug: true,
+
+    devtool: 'source-map',
+
     entry: {
         app: ['./example/common/App.js']
     },
 
     output: {
-        filename: '[name].js'
+        filename: '[name].js',
+        path: path.resolve(__dirname, 'build'),
+        sourceMapFilename: '[name].map'
     },
 
     module: {
         loaders: [{
-            test: /^zrender/,
-            loader: 'amd-loader'
-        }, {
             test: /\.js$/,
-            loader: 'babel-loader'
+            loader: 'babel-loader',
+            exclude: /node_modules/
         }]
     },
 
     resolve: {
         root: __dirname,
         alias: {
-            'react-zrender': 'lib/main.js',
-            'zrender': 'node_modules/zrender/src/'
+            zrender: 'node_modules/zrender/src/'
         }
     }
 };

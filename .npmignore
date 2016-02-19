@@ -5,6 +5,7 @@ dist
 test
 tool
 src
+build
 coverage
 edp-*.js
 bower.json

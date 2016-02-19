@@ -13,7 +13,6 @@
     "zrender": "^3.0.1"
   },
   "devDependencies": {
-    "amd-loader": "0.0.5",
     "babel-core": "^6.5.2",
     "babel-loader": "^6.2.3",
     "babel-plugin-external-helpers": "^6.5.0",
