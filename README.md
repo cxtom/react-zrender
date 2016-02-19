@@ -80,7 +80,7 @@ const App = React.createClass({
                         shape={{
                             cx: 250,
                             cy: 150,
-                            r: this.state.r
+                            r: 20
                         }}
                         style={{
                             stroke: '#000',
@@ -91,7 +91,7 @@ const App = React.createClass({
                                 shape={{
                                     cx: 300,
                                     cy: 150,
-                                    r: this.state.r
+                                    r: 30
                                 }}
                                 style={{
                                     stroke: '#000',
