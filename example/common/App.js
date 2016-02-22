@@ -36,7 +36,7 @@ const App = React.createClass({
 
         return (
             <Zrender
-                renderer="canvas"
+                renderer="svg"
                 width={500}
                 height={300}>
                 <Text

@@ -16,7 +16,8 @@ module.exports = {
     devtool: 'source-map',
 
     entry: {
-        app: ['./example/common/App.js']
+        app: ['./example/common/App.js'],
+        animate: ['./example/common/Animate.js']
     },
 
     output: {
