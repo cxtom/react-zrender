@@ -26,8 +26,10 @@ const App = React.createClass({
     },
 
     componentDidMount() {
+
         const {circle} = this.refs;
         const me = this;
+
         circle
             .animate('', false)
             .when(1000, {
