@@ -32,7 +32,8 @@ const ZrenderText = createComponent('Text', NodeMixin, ElementMixin, {
         const newString = childrenAsString(children);
         rest.style = rest.style || {};
         rest.style.text = newString;
-        this.node = new Text(rest);
+        this.node = new Text();
+        this.applyNodeProps({}, rest);
         this._oldString = newString;
         return this.node;
     },

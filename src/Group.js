@@ -17,7 +17,8 @@ const ZrenderGroup = createComponent('Group', NodeMixin, ContainerMixin, {
         context
     ) {
         const props = this._currentElement.props;
-        this.node = new Group(props);
+        this.node = new Group();
+        this.applyNodeProps({}, props);
         this.mountAndInjectChildren(props.children, transaction, context);
         return this.node;
     },

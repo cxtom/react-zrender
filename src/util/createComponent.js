@@ -9,8 +9,7 @@ module.exports = function createComponent(name, ...args) {
 
     let ReactARTComponent = function (props) {
         this.node = null;
-        this.subscriptions = null;
-        this.listeners = null;
+        this.listeners = {};
         this._mountImage = null;
         this._renderedChildren = null;
     };

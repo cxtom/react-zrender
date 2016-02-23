@@ -27,7 +27,7 @@ const App = React.createClass({
     componentDidMount() {
         setTimeout(() => {
             this.setState({r: 50});
-        }, 1000);
+        }, 10000);
     },
 
     render() {
@@ -40,6 +40,9 @@ const App = React.createClass({
                 width={500}
                 height={300}>
                 <Text
+                    onClick={r === 30 ? () => {
+                        alert('hello');
+                    } : undefined}
                     style={{
                         fill: '#000',
                         font: '18px Arial',

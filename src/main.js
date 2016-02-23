@@ -61,7 +61,8 @@ function create(type) {
             context
         ) {
             const {props} = this._currentElement;
-            this.node = new Element(props);
+            this.node = new Element();
+            this.applyNodeProps({}, props);
             return this.node;
         }
 
