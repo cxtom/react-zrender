@@ -7,9 +7,9 @@ exports.Zrender = require('./Zrender');
 exports.Group = require('./Group');
 exports.Text = require('./Text');
 
-const createComponent = require('./createComponent');
-const NodeMixin = require('../mixins/NodeMixin');
-const ElementMixin = require('../mixins/ElementMixin');
+const createComponent = require('./util/createComponent');
+const NodeMixin = require('./mixins/NodeMixin');
+const ElementMixin = require('./mixins/ElementMixin');
 
 require('zrender/graphic/Image');
 
@@ -68,5 +68,7 @@ function create(type) {
     });
 
 }
+
+exports.Image = create('Image');
 
 exports.getShape = create;
